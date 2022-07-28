@@ -3,6 +3,8 @@ const playBtn = document.querySelector('#play')
 const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 const audio = document.querySelector('#audio')
+const artist = document.querySelector('#artist')
+const artistList = document.querySelector('#artistList')
 const title = document.querySelector('#title')
 const cover = document.querySelector('#cover')
 
@@ -65,6 +67,30 @@ function nextSong() {
     playSong()
 }
 
+async function getArtist() {
+    let url = 'app.json';
+    try {
+        let res = await fetch(url);
+        return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function renderArtist() {
+    let artists = await getArtist();
+    let html = '';
+    artists.forEach(song => {
+        let htmlSegment = `<h2>${song.artist}</h2>`;
+        html += htmlSegment;
+    });
+    
+    let body = document.querySelector('artistList');
+    body.innerHTML = html;
+}
+
+renderArtist();
+
 //event listeners
 playBtn.addEventListener('click', () => {
     const isPlaying = musicContainer.classList.contains('play')
@@ -79,3 +105,12 @@ playBtn.addEventListener('click', () => {
 //change songs
 prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
+artist.addEventListener('mouseenter', function(){
+    artist.style.opacity = 1;
+})
+artist.addEventListener('mouseout', function(){
+    artist.style.opacity = 0;
+})
+artist.addEventListener('click', function(){
+    artistList.style.opacity = 1;
+})
