@@ -1,0 +1,19 @@
+{
+  "songs": [
+      {
+        "id": 1,
+         "songName": "82.99",
+         "artistName": "Macross 82-99"
+      },
+      {
+        "id": 2,
+        "songName": "The Bygone Days",
+        "artistName": "Unknown"
+      },
+      {
+        "id": 3,
+          "songName": "4:00 AM",
+          "artistName": "Taeko Onuki"
+      }
+  ]
+}
