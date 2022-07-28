@@ -15,6 +15,11 @@ body {
     justify-content: center;
 }
 
+.artistList {
+    background-color: #fff;
+    position: relative;
+}
+
 .music-container {
     background-color: #fff;
     border-radius: 120px;
@@ -88,6 +93,11 @@ body {
     margin: 0;
 }
 
+.music-info h5 {
+    opacity: 0;
+    cursor: pointer;
+}
 
-
-
+.music-info h5:hover {
+    opacity: 1;
+}
