@@ -67,29 +67,7 @@ function nextSong() {
     playSong()
 }
 
-async function getArtist() {
-    let url = 'app.json';
-    try {
-        let res = await fetch(url);
-        return await res.json();
-    } catch (error) {
-        console.log(error);
-    }
-}
 
-async function renderArtist() {
-    let artists = await getArtist();
-    let html = '';
-    artists.forEach(song => {
-        let htmlSegment = `<h2>${song.artist}</h2>`;
-        html += htmlSegment;
-    });
-    
-    let body = document.querySelector('artistList');
-    body.innerHTML = html;
-}
-
-renderArtist();
 
 //event listeners
 playBtn.addEventListener('click', () => {
@@ -110,7 +88,4 @@ artist.addEventListener('mouseenter', function(){
 })
 artist.addEventListener('mouseout', function(){
     artist.style.opacity = 0;
-})
-artist.addEventListener('click', function(){
-    artistList.style.opacity = 1;
 })
