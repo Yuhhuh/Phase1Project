@@ -75,16 +75,7 @@ function appendArtist(songs) {
     }
 }
 
-fetch('http://localhost:3000/songs')
-.then(function (response){
-    return response.json();
-})
-.then(function (songs) {
-    appendArtist(songs);
-})
-.catch(function (err) {
-    console.log('error: ' + err);
-})
+
 
 
 
@@ -110,3 +101,15 @@ artist.addEventListener('mouseout', function(){
     artist.style.opacity = 0;
 })
 
+artist.addEventListener('click', function(){
+    fetch('http://localhost:3000/songs')
+.then(function (response){
+    return response.json();
+})
+.then(function (songs) {
+    appendArtist(songs);
+})
+.catch(function (err) {
+    console.log('error: ' + err);
+})
+})
