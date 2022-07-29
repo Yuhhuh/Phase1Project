@@ -94,6 +94,7 @@ body h2 {
 
 .music-info h5 {
     opacity: 0;
+    cursor: pointer;
 }
 
 .music-info h5:hover {
