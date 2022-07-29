@@ -15,7 +15,7 @@
         <div class="music-container">
             <div class="music-info">
                 <h4 id="title">4AM</h4>
-                <h5 id="artist">
+                <h5 id="artistShort">
                     <li>Unknown</li>
                 </h5>
                 <div class="progress-container">
@@ -26,7 +26,7 @@
             <audio src="music/4 AM.mp3" id="audio"></audio>
 
             <div class="img-container">
-                <img src="images/4AM.jpg" alt="music-cover" id="cover"/>
+                <img src="images/4 AM.jpg" alt="music-cover" id="cover"/>
             </div>
 
             <div class="navigation">
@@ -42,26 +42,10 @@
             </div>
         </div>
         <script src="script.js">
-            fetch('db.json')
-                .then(function (response){
-                    return response.json();
-                })
-                .then(function (data) {
-                    appendData(data);
-                })
-                .catch(function (err) {
-                    console.log(err);
-                })
-                
-                function appendArtist(artists) {
-                    var artistsContainer = document.getElementById("artistContainer")
-                    for (var i = 0; i < artists.length; i++) {
-                        var div = document.createElement("div");
-                        div.innerHTML = 'Artist Name: ' + artists[i].artistName;
-                        artistsContainer.appendChild(div);
-                    }
-                }
+
+
         </script>
 
     </body>
 </html>
+
