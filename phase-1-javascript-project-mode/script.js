@@ -3,8 +3,7 @@ const playBtn = document.querySelector('#play')
 const prevBtn = document.querySelector('#prev')
 const nextBtn = document.querySelector('#next')
 const audio = document.querySelector('#audio')
-const artist = document.querySelector('#artist')
-const artistList = document.querySelector('#artistList')
+const artist = document.querySelector('#artistShort')
 const title = document.querySelector('#title')
 const cover = document.querySelector('#cover')
 
@@ -67,6 +66,27 @@ function nextSong() {
     playSong()
 }
 
+function appendArtist(songs) {
+    var artistsContainer = document.getElementById("artistContainer")
+    for (var i = 0; i < songs.length; i++) {
+        var div = document.createElement("div");
+        div.innerHTML = 'Artist Name: ' + songs[i].artistName;
+        artistsContainer.appendChild(div);
+    }
+}
+
+fetch('http://localhost:3000/songs')
+.then(function (response){
+    return response.json();
+})
+.then(function (songs) {
+    appendArtist(songs);
+})
+.catch(function (err) {
+    console.log('error: ' + err);
+})
+
+
 
 
 //event listeners
@@ -89,3 +109,4 @@ artist.addEventListener('mouseenter', function(){
 artist.addEventListener('mouseout', function(){
     artist.style.opacity = 0;
 })
+
