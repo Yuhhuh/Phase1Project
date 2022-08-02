@@ -7,23 +7,31 @@ const artist = document.querySelector('#artistShort')
 const title = document.querySelector('#title')
 const cover = document.querySelector('#cover')
 
-//Song Titles
-const songs = ['4 AM', '8299.FM', 'The Bygone Days']
-
 //track songs
-let songIndex = songs.indexOf('4 AM') + 2;
+let songIndex = 1;
 
 //load song
-loadSong(songs[songIndex])
-
-//shuffle songs
-
+getMyData(songIndex)
 
 //song details
-function loadSong(song) {
-    title.innerText = song
-    audio.src = `music/${song}.mp3`
-    cover.src = `images/${song}.jpg`
+
+function getMyData(songId) {
+    fetch('http://localhost:3000/songs/' + songId)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(data => showMyData(data))
+}
+
+function showMyData(song){
+    title.innerText = song.songName
+    const artistsContainer = document.getElementById("artistShort")
+    artistsContainer.innerHTML = '';
+    const div = document.createElement("div");
+    div.innerText = 'Artist Name: ' + song.artistName;
+    artistsContainer.appendChild(div);
+    audio.src = song.song
+    cover.src = song.image
 }
 
 function playSong() {
@@ -45,49 +53,22 @@ function pauseSong() {
 function prevSong() {
     songIndex--
 
-    if(songIndex < 0) {
-        songIndex = songs.length - 1
+    if(songIndex < 1) {
+        songIndex = 10
     }
 
-    loadSong(songs[songIndex])
-
-    playSong()
+    getMyData(songIndex)
 }
 
 function nextSong() {
     songIndex++
 
-    if(songIndex > songs.length - 1) {
-        songIndex = 0
+    if(songIndex > 10) {
+        songIndex = 1
     }
 
-    loadSong(songs[songIndex])
-
-    playSong()
+    getMyData(songIndex)
 }
-
-function appendArtist(songs) {
-    const artistsContainer = document.getElementById("artistShort")
-    for (let i = 0; i < songs.length; i++) {
-        const div = document.createElement("div");
-        div.innerHTML = 'Artist Name: ' + songs[i].artistName;
-        artistsContainer.appendChild(div);
-    }
-}
-
-/*fetch('http://localhost:3000/songs')
-.then(function (response){
-    return response.json();
-})
-.then(function (songs) {
-    appendArtist(songs);
-})
-.catch(function (err) {
-    console.log('error: ' + err);
-})*/
-
-
-
 
 //event listeners
 playBtn.addEventListener('click', () => {
@@ -105,17 +86,9 @@ prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
 title.addEventListener('mouseenter', function(){
     artist.style.opacity = 1;
-    fetch('http://localhost:3000/songs')
-    .then(function (response){
-        return response.json();
-    })
-    .then(function (songs) {
-        appendArtist(songs);
-    })
-    .catch(function (err) {
-        console.log('error: ' + err);
-    })
 })
 title.addEventListener('mouseout', function(){
     artist.style.opacity = 0;
 })
+
+
