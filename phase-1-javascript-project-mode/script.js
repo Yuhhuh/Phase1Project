@@ -52,6 +52,8 @@ function pauseSong() {
 
 function prevSong() {
     songIndex--
+    
+    pauseSong()
 
     if(songIndex < 1) {
         songIndex = 10
@@ -62,6 +64,8 @@ function prevSong() {
 
 function nextSong() {
     songIndex++
+    
+    pauseSong()
 
     if(songIndex > 10) {
         songIndex = 1
