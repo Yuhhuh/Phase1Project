@@ -20,6 +20,55 @@
           "songName": "4:00 AM",
           "artistName": "Taeko Onuki",
           "image": "images/4 AM.jpg"
+      },
+      {
+        "id": 4,
+        "song": "music/逆光（ウタ.mp3",
+        "songName": "逆光（ウタ",
+        "artistName": "Ado",
+        "image": "images/Ado.png"
+      },
+      {
+        "id": 5,
+        "song": "music/Only Wonder.mp4",
+        "songName": "Only Wonder",
+        "artistName": "FREDERIC",
+        "image": "images/Wonder.jpg"
+      },
+      {
+        "id": 6,
+        "song": "music/ボッカデラベリタ 歌いました.mp4",
+        "songName": "ボッカデラベリタ 歌いました",
+        "artistName": "Ado",
+        "image": "images/Ado2.jpg"
+      },
+      {
+        "id": 7,
+        "song": "music/Bloody Mary.mp4",
+        "songName": "Bloody Mary",
+        "artistName": "缶缶",
+        "image": "images/BloodyM.png"
+      },
+      {
+        "id": 8,
+        "song": "music/Cracker Island.mp3",
+        "songName": "Cracker Island",
+        "artistName": "Gorillaz",
+        "image": "images/CI.jpg"
+      },
+      {
+        "id": 9,
+        "song": "music/Pass the Dutchie.mp3",
+        "songName": "Pass the Dutchie",
+        "artistName": "Musical Youth",
+        "image": "images/Dutchie.jpg"
+      },
+      {
+        "id": 10,
+        "song": "music/Oddloop.mp4",
+        "songName": "Oddloop",
+        "artistName": "FREDERIC",
+        "image": "images/Odd.jpg"
       }
   ]
 }
