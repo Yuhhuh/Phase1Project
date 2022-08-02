@@ -2,18 +2,24 @@
   "songs": [
       {
         "id": 1,
+        "song": "music/8299.FM.mp3",
          "songName": "82.99",
-         "artistName": "Macross 82-99"
+         "artistName": "Macross 82-99",
+         "image": "images/8299.FM.jpg"
       },
       {
         "id": 2,
+        "song": "music/The Bygone Days.mp3",
         "songName": "The Bygone Days",
-        "artistName": "Unknown"
+        "artistName": "Unknown",
+        "image": "images/The Bygone Days.jpg"
       },
       {
         "id": 3,
+        "song": "music/4 AM.mp3",
           "songName": "4:00 AM",
-          "artistName": "Taeko Onuki"
+          "artistName": "Taeko Onuki",
+          "image": "images/4 AM.jpg"
       }
   ]
 }
