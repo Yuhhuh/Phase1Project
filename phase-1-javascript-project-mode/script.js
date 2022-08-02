@@ -67,15 +67,24 @@ function nextSong() {
 }
 
 function appendArtist(songs) {
-    var artistsContainer = document.getElementById("artistContainer")
-    for (var i = 0; i < songs.length; i++) {
-        var div = document.createElement("div");
+    const artistsContainer = document.getElementById("artistShort")
+    for (let i = 0; i < songs.length; i++) {
+        const div = document.createElement("div");
         div.innerHTML = 'Artist Name: ' + songs[i].artistName;
         artistsContainer.appendChild(div);
     }
 }
 
-
+/*fetch('http://localhost:3000/songs')
+.then(function (response){
+    return response.json();
+})
+.then(function (songs) {
+    appendArtist(songs);
+})
+.catch(function (err) {
+    console.log('error: ' + err);
+})*/
 
 
 
@@ -94,22 +103,19 @@ playBtn.addEventListener('click', () => {
 //change songs
 prevBtn.addEventListener('click', prevSong)
 nextBtn.addEventListener('click', nextSong)
-artist.addEventListener('mouseenter', function(){
+title.addEventListener('mouseenter', function(){
     artist.style.opacity = 1;
-})
-artist.addEventListener('mouseout', function(){
-    artist.style.opacity = 0;
-})
-
-artist.addEventListener('click', function(){
     fetch('http://localhost:3000/songs')
-.then(function (response){
-    return response.json();
+    .then(function (response){
+        return response.json();
+    })
+    .then(function (songs) {
+        appendArtist(songs);
+    })
+    .catch(function (err) {
+        console.log('error: ' + err);
+    })
 })
-.then(function (songs) {
-    appendArtist(songs);
-})
-.catch(function (err) {
-    console.log('error: ' + err);
-})
+title.addEventListener('mouseout', function(){
+    artist.style.opacity = 0;
 })
